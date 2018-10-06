@@ -1,0 +1,13 @@
+.seriesPage {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+}
+
+.seriesContent {
+    display: flex;
+    width: 85%;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

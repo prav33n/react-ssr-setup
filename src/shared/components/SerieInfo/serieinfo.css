@@ -1,0 +1,38 @@
+.serieInfoContainer {
+    width: 500px;
+    margin-top: 10%;
+    margin-left: 50px;
+    position: absolute;
+    z-index: 2;
+}
+
+.serieTitle,
+.serieSynopsis {
+    color: #fff;
+}
+
+.serieTitle {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.serieSynopsis {
+    font-size: 16px;
+}
+
+.serieBackgroundContainer,
+.serieBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.serieBackgroundOverlay {
+    position: absolute;
+    box-shadow: inset 850px 0 390px 0 #0f161a, inset -170px 0 180px 0 #0f161a,
+        inset 0 -100px 130px 0 #0f161a;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}

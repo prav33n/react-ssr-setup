@@ -2,18 +2,25 @@
 import type { ActionT, AppT } from './types';
 import { ActionTypes } from './actions';
 
-export const initialState: AppT = Object.freeze({
-    locale: 'en-US',
-});
+export const initialState: AppT = {
+    series: [],
+    selectedSeries: null,
+};
 
 export default (state: AppT = initialState, action: ActionT): AppT => {
     const { type, payload = {} } = action;
 
     switch (type) {
-        case ActionTypes.SETLOCALE: {
+        case ActionTypes.SETSERIES: {
             return {
                 ...state,
-                locale: payload,
+                series: payload,
+            };
+        }
+        case ActionTypes.SETSELECTEDSERIES: {
+            return {
+                ...state,
+                selectedSeries: payload,
             };
         }
     }

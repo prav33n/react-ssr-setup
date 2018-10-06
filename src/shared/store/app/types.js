@@ -1,11 +1,27 @@
 // @flow
-
-export type LocaleT = 'en-US' | 'de-DE';
-
 export type AppT = {
-    locale: LocaleT,
+    series: SeriesT[],
+    selectedSeries: null | SeriesT,
 };
 
-type GenericActionT = { type: string, payload: * };
+type setSeriesListAction = {
+    type: 'SET_SERIES',
+    payload: SeriesT[],
+};
 
-export type ActionT = GenericActionT;
+type setSeriesAction = {
+    type: 'SET_SELECTED_SERIES',
+    payload: SeriesT,
+};
+
+export type ActionT = setSeriesListAction | setSeriesAction;
+
+export type SeriesT = {
+    type: string,
+    coverImage: string,
+    publicPath: string,
+    title: string,
+    synopsis: string,
+    href?: string,
+    seasons?: number,
+};
