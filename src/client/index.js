@@ -1,26 +1,22 @@
 import React from 'react';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter as Router, routerMiddleware } from 'react-router-redux';
 import App from '../shared/App';
-import IntlProvider from '../shared/i18n/IntlProvider';
+import { ConnectedRouter as Router } from 'connected-react-router';
 import { configureStore } from '../shared/store';
 
-const browserHistory = window.browserHistory || createHistory();
+const browserHistory = window.browserHistory || createBrowserHistory();
 const store =
     window.store ||
     configureStore({
         initialState: window.__PRELOADED_STATE__,
-        middleware: [routerMiddleware(browserHistory)],
     });
 
 hydrate(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <IntlProvider>
-                <App />
-            </IntlProvider>
+            <App />
         </Router>
     </Provider>,
     document.getElementById('app')

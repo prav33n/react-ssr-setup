@@ -1,0 +1,20 @@
+.serieContainer {
+    width: 289px;
+    height: 163px;
+    margin: 25px;
+}
+
+.serieSeasons {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    color: #fff;
+    background: #0397d6;
+    float: right;
+    font-weight: bold;
+    position: relative;
+    top: -40px;
+    left: -10px;
+    text-align: center;
+}

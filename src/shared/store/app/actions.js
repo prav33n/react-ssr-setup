@@ -1,11 +1,17 @@
 // @flow
-import type { LocaleT } from './types';
+import type { SeriesT } from './types';
 
 export const ActionTypes = {
-    SETLOCALE: 'app/set-locale',
+    SETSERIES: 'SET_SERIES',
+    SETSELECTEDSERIES: 'SET_SELECTED_SERIES',
 };
 
-export const setLocale = (locale: LocaleT) => ({
-    type: ActionTypes.SETLOCALE,
-    payload: locale,
+export const setSelectedSeries = (serie: SeriesT) => ({
+    type: ActionTypes.SETSELECTEDSERIES,
+    payload: serie,
+});
+
+export const setSeries = (seriesList: SeriesT[]) => ({
+    type: ActionTypes.SETSERIES,
+    payload: seriesList,
 });

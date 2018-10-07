@@ -1,8 +1,16 @@
+import { createBrowserHistory, createMemoryHistory } from 'history';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import rootReducer from './rootReducer';
 
-export const configureStore = ({ initialState, middleware = [] } = {}) => {
+const isServer = !(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+);
+
+export const configureStore = ({ initialState } = {}) => {
     const devtools =
         typeof window !== 'undefined' &&
         typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function' &&
@@ -10,10 +18,16 @@ export const configureStore = ({ initialState, middleware = [] } = {}) => {
 
     const composeEnhancers = devtools || compose;
 
+    const history = isServer
+        ? createMemoryHistory({
+              initialEntries: ['/'],
+          })
+        : createBrowserHistory();
+
     const store = createStore(
-        rootReducer,
+        connectRouter(history)(rootReducer),
         initialState,
-        composeEnhancers(applyMiddleware(...[thunk].concat(...middleware)))
+        composeEnhancers(applyMiddleware(routerMiddleware(history), ...[thunk]))
     );
 
     if (process.env.NODE_ENV !== 'production') {
