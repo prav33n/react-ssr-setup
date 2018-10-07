@@ -7,4 +7,7 @@
     font-family: 'Titillium Web', Arial, Sans-Serif;
     margin: 0;
     background: #000;
+    display: block;
+    width: 100vw;
+    height: 100vh;
 }
