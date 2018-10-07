@@ -5,4 +5,5 @@ Base repo forked from https://github.com/manuelbieh/react-ssr-setup
 Install Packages - nvm use and npm i
 
 Run the app - npm run start 
+
 Run Tests - npm run test
