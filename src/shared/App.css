@@ -5,4 +5,6 @@
 :global(body) {
     font-size: var(--font-size-base);
     font-family: 'Titillium Web', Arial, Sans-Serif;
+    margin: 0;
+    background: #000;
 }

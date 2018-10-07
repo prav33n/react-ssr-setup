@@ -7,24 +7,12 @@ const { logMessage, compilerPromise } = require('./utils');
 
 const generateStaticHTML = async () => {
     const nodemon = require('nodemon');
-    const fs = require('fs');
-    const puppeteer = require('puppeteer');
 
     process.env.PORT = 8505;
 
     const script = nodemon({
         script: `${paths.serverBuild}/server.js`,
-        ignore: ['*'],
-    });
-
-    script.on('start', async () => {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.goto(`http://localhost:${process.env.PORT}`);
-        const pageContent = await page.content();
-        fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
-        await browser.close();
-        process.exit();
+        ignore: ['src', 'scripts', 'config', './*.*', 'build/client'],
     });
 
     script.on('quit', () => {

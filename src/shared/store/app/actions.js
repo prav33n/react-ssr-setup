@@ -11,7 +11,7 @@ export const setSelectedSeries = (serie: SeriesT) => ({
     payload: serie,
 });
 
-export const setSeries = (seriesLisr: SeriesT[]) => ({
+export const setSeries = (seriesList: SeriesT[]) => ({
     type: ActionTypes.SETSERIES,
     payload: seriesList,
 });

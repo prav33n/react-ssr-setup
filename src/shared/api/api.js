@@ -5,14 +5,16 @@ export const getSeriesList = () => {
     const url = `${getInitUrl}samtliga`;
     return fetch(url, options)
         .then((response) => response.json())
-        .then(processListData);
+        .then(processListData)
+        .catch(console.log);
 };
 
 export const getSeriesData = (seriesPath) => {
     const url = `${getInitUrl}${seriesPath}?partial=true`;
     return fetch(url, options)
         .then((response) => response.json())
-        .then(processSerieData);
+        .then(processSerieData)
+        .catch(console.log);
 };
 
 const baseURL = 'https://content.viaplay.se/';

@@ -5,13 +5,12 @@ import { withRouter } from 'react-router-dom';
 
 import { SeriesT } from '../store/app/types';
 import SerieInfo from '../components/SerieInfo';
-import { getSeriesData } from '../api/api';
 
 type PropsT = {
-    serieDetails: SeriesT[],
+    selectedSeries: SeriesT,
 };
 
-class SeriePage extends React.Component {
+class SeriePage extends React.Component<PropsT> {
     state = {
         loading: this.props.selectedSeries ? false : true,
         selectedSeries: this.props.selectedSeries || null,

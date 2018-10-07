@@ -7,10 +7,10 @@ import Serie from '../components/Serie';
 import styles from './styles.css';
 
 type PropsT = {
-    serie: SeriesT[],
+    series: SeriesT[],
 };
 
-class SeriesList extends React.Component {
+class SeriesList extends React.PureComponent<PropsT> {
     render() {
         const { series } = this.props;
         if (!series || series.length === 0) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import idx from 'idx';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -20,9 +21,13 @@ const serverRenderer = () => (req, res) => {
     return (urlFragments.length > 2 ? getSeriesData(urlFragments.pop()) : getSeriesList())
         .then((data) => {
             const state = req.store.getState();
-            if (state.app.series.length === 0 && data.length > 0) {
+            if (idx(state, (_) => _.app.series.length) === 0 && data.length > 0) {
                 state.app.series = data;
-            } else if (!state.app.selectedSeries && data.type === 'article') {
+            } else if (
+                !idx(state, (_) => _.app.series.selectedSeries) &&
+                data &&
+                data.type === 'article'
+            ) {
                 state.app.selectedSeries = data;
             }
             res.status(200).send(

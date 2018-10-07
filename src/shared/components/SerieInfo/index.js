@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { connect } from 'react-redux';
 
 import { getImageUrlFromTemplate } from '../../utils';
 import { SeriesT } from '../../store/app/types';

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Fragment } from 'react';
-import { Redirect, Route, Switch, withRouter, Router } from 'react-router-dom';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import SeriesList from './containers/SeriesList';
 import SeriePage from './containers/SeriePage';
 import Header from './components/Header';
