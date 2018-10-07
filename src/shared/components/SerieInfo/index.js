@@ -4,7 +4,7 @@ import * as React from 'react';
 import { getImageUrlFromTemplate } from '../../utils';
 import { SeriesT } from '../../store/app/types';
 
-import styles from './serieInfo.css';
+import styles from './serieinfo.css';
 
 type PropsT = {
     selectedSeries: SeriesT,
